@@ -295,7 +295,7 @@ void check_insert_op()
 	print(one_elem_list);
 }
 
-
+// Func which sum up the elements of two linked lists
 LinkedList*sum_of_elem(LinkedList*first, LinkedList*second)
 {
 	LinkedList*sum = new LinkedList();
@@ -364,13 +364,3 @@ void check_find_all()
 	print(empty->find_all(1));
 }
 
-int main()
-{
-	check_remove_op();
-	check_remove_all_op();
-	check_size_func();
-	check_clear_func();
-	check_insert_op();
-	check_sum();
-	check_find_all(); 
-}
