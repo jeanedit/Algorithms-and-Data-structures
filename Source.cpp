@@ -46,7 +46,6 @@ public:
 	{
 		Node*current = head;
 		if (current == NULL) return false;
-
 		else if (current->value== val)
 		{
 			head =current->next;
@@ -58,8 +57,13 @@ public:
 				current = current->next;
 				if (current->next == NULL) return false;
 			}
+			if (current->next = tail)
+			{
+				tail = current;
+				tail->next = NULL;
+				return true;
+			}
 			current->next = current->next->next;
-
 			return true;
 		}              // если узел был удалён
 	}
@@ -81,6 +85,8 @@ public:
 				node = node->next;
 			}
 		}
+		tail = node;
+		tail->next = NULL;
 		return;
 	}
 
@@ -122,6 +128,12 @@ public:
 		{
 			printf("Node to Insert is NULL\n");
 			return;
+		}
+		else if (nodeAfter == tail)
+		{
+			tail->next= nodeToInsert;
+			tail = nodeToInsert;
+			tail->next = NULL;
 		}
 		else {
 			while (node != NULL)
@@ -207,9 +219,10 @@ void check_remove_op()
 	
 
 	//removing operation
-	if (one_elem_list->remove(1)) // if true print the list without this node
+	if (s_list->remove(81)) // if true print the list without this node
 	{
-		print(one_elem_list);
+		print(s_list);
+		printf("%i\n", s_list->tail->value);
 	}
 }
 
@@ -220,20 +233,25 @@ void check_remove_all_op()
 	LinkedList*one_elem_list = new LinkedList();
 	one_elem_list->add_in_tail(new Node(1));
 	LinkedList* test_list = new LinkedList();
+	test_list->add_in_tail(new Node(4));
 	test_list->add_in_tail(new Node(1));
 	test_list->add_in_tail(new Node(1));
 	test_list->add_in_tail(new Node(2));
 	test_list->add_in_tail(new Node(2));
 	test_list->add_in_tail(new Node(1));
 	test_list->add_in_tail(new Node(1));
+	test_list->add_in_tail(new Node(4));
 	test_list->add_in_tail(new Node(2));
+	test_list->add_in_tail(new Node(4));
+	test_list->add_in_tail(new Node(4));
 	test_list->add_in_tail(new Node(4));
 
 
 	//one_elem_list->remove_all(2);
 	//empty_list->remove_all(2);
-	test_list->remove_all(2);
+	test_list->remove_all(4);
 	print(test_list);
+	printf("Head: " "%i\t" "Tail: " "%i\n", test_list->tail->value,test_list->head->value);
 }
 
 //TEST FOR CLEAR OPERATION FUNC
@@ -291,8 +309,9 @@ void check_insert_op()
 		test_list->add_in_tail(new Node(i*i));
 	}
 	Node*n1 = new Node(5);
-	one_elem_list->insert_after(one_elem_list->head, n1);
-	print(one_elem_list);
+	test_list->insert_after(test_list->tail, n1);
+	print(test_list);
+	printf("%i\n", test_list->tail->value);
 }
 
 // Func which sum up the elements of two linked lists
@@ -364,3 +383,9 @@ void check_find_all()
 	print(empty->find_all(1));
 }
 
+int main()
+{
+	//check_remove_op();
+	//check_remove_all_op();
+	check_insert_op();
+}
