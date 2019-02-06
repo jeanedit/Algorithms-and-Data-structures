@@ -57,15 +57,15 @@ public:
 				current = current->next;
 				if (current->next == NULL) return false;
 			}
-			if (current->next = tail)
+			if (current->next == tail)
 			{
 				tail = current;
 				tail->next = NULL;
-				return true;
 			}
+			else
 			current->next = current->next->next;
 			return true;
-		}              // Ã¥Ã±Ã«Ã¨ Ã³Ã§Ã¥Ã« Ã¡Ã»Ã« Ã³Ã¤Ã Ã«Â¸Ã­
+		}              // åñëè óçåë áûë óäàë¸í
 	}
 
 	void remove_all(int val)
@@ -219,10 +219,10 @@ void check_remove_op()
 	
 
 	//removing operation
-	if (s_list->remove(81)) // if true print the list without this node
+	if (s_list->remove(256)) // if true print the list without this node
 	{
 		print(s_list);
-		printf("%i\n", s_list->tail->value);
+		//printf("%i\n", s_list->tail->value);
 	}
 }
 
@@ -381,4 +381,11 @@ void check_find_all()
 	}
 	print(test_list);
 	print(empty->find_all(1));
+}
+
+int main()
+{
+	check_remove_op();
+	//check_remove_all_op();
+	//check_insert_op();
 }
