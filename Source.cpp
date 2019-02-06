@@ -65,7 +65,7 @@ public:
 			}
 			current->next = current->next->next;
 			return true;
-		}              // åñëè óçåë áûë óäàë¸í
+		}              // Ã¥Ã±Ã«Ã¨ Ã³Ã§Ã¥Ã« Ã¡Ã»Ã« Ã³Ã¤Ã Ã«Â¸Ã­
 	}
 
 	void remove_all(int val)
@@ -381,11 +381,4 @@ void check_find_all()
 	}
 	print(test_list);
 	print(empty->find_all(1));
-}
-
-int main()
-{
-	//check_remove_op();
-	//check_remove_all_op();
-	check_insert_op();
 }
