@@ -51,6 +51,10 @@ public:
 			head =current->next;
 			return true;
 		}
+		else if (current->next == NULL)
+		{
+			return false;
+		}
 		else {
 			while (current->next->value != val)
 			{
@@ -65,7 +69,7 @@ public:
 			else
 			current->next = current->next->next;
 			return true;
-		}              // Ã¥Ã±Ã«Ã¨ Ã³Ã§Ã¥Ã« Ã¡Ã»Ã« Ã³Ã¤Ã Ã«Â¸Ã­
+		}              // åñëè óçåë áûë óäàë¸í
 	}
 
 	void remove_all(int val)
@@ -121,7 +125,6 @@ public:
 		if (nodeAfter == NULL)
 		{
 			head = nodeToInsert;
-			tail = nodeToInsert;
 			return;
 		}
 		else if (nodeToInsert == NULL)
@@ -217,13 +220,16 @@ void check_remove_op()
 		s_list->add_in_tail(new Node(i*i));
 	}
 	
-
+	print(one_elem_list);
+	//printf("Tail: %i\n", one_elem_list->tail);
 	//removing operation
-	if (s_list->remove(256)) // if true print the list without this node
+	if (one_elem_list->remove(2)) // if true print the list without this node
 	{
-		print(s_list);
+		//printf("Tail: %i\n", one_elem_list->tail);
+		print(one_elem_list);
 		//printf("%i\n", s_list->tail->value);
 	}
+	print(one_elem_list);
 }
 
 //TEST FOR REMOVE_ALL OPERATION FUNC
@@ -382,3 +388,11 @@ void check_find_all()
 	print(test_list);
 	print(empty->find_all(1));
 }
+
+/*
+int main()
+{
+
+
+}
+*/
