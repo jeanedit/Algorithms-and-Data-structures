@@ -131,6 +131,7 @@ public:
 		if (nodeAfter == NULL)
 		{
 			head = nodeToInsert;
+			tail = nodeToInsert;
 			return;
 		}
 		else if (nodeToInsert == NULL)
