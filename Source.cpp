@@ -104,12 +104,13 @@ public:
 	{
 		Node*current = head;
 		if (current == NULL) return;
-		while (current!= NULL)
+		while (current != NULL)
 		{
 			head = current->next;
 			delete current;
 			current = head;
 		}
+		tail = NULL;
 	}
 
 	int size()
