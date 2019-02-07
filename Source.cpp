@@ -48,7 +48,13 @@ public:
 		if (current == NULL) return false;
 		else if (current->value== val)
 		{
-			head =current->next;
+			if (head == tail)
+			{
+				head = current->next;
+				tail = current->next;
+			}
+			else
+				head = current->next;
 			return true;
 		}
 		else if (current->next == NULL)
@@ -69,7 +75,7 @@ public:
 			else
 			current->next = current->next->next;
 			return true;
-		}              // если узел был удалён
+		}              // ГҐГ±Г«ГЁ ГіГ§ГҐГ« ГЎГ»Г« ГіГ¤Г Г«ВёГ­
 	}
 
 	void remove_all(int val)
