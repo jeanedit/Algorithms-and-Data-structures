@@ -71,8 +71,10 @@ public:
 				return true;
 			}
 			else
+			{
 				head = node->next;
-
+				head->prev = NULL;
+			}
 			return true;
 		}
 		else if (node->next == NULL) //if list consist of one node
@@ -99,7 +101,7 @@ public:
 			}
 
 		}
-		return false; 
+		return false; // если узел был удалён
 	}
 
 	void remove_all(int val)
@@ -262,22 +264,26 @@ void remove_test()
 	LinkedList2*empty_list = new LinkedList2();
 	LinkedList2*one_elem_list = new LinkedList2();
 	one_elem_list->add_in_tail(new Node(1));
+	//one_elem_list->add_in_tail(new Node(2));
 	LinkedList2*test_list = new LinkedList2();
 	for (int i = 1; i <= 10; ++i)
 	{
 		test_list->add_in_tail(new Node(i));
 	}
-	if (empty_list->remove(10))
+	//("Head: %i\tTail: %i\nPrev: %i\n", one_elem_list->head->prev, one_elem_list->tail->value, one_elem_list->tail->prev->value);
+	if (one_elem_list->remove(2))
 	{
 		print(test_list);
 	}
-	printf("Head: %i\tTail: %i\nPrev: %i\n", test_list->head->value, test_list->tail->value, test_list->tail->prev->value);
+	printf("Head: %i\tTail: %i\n", one_elem_list->head, one_elem_list->tail);
+	//printf("Head: %i\tTail: %i\nPrev: %i\n", one_elem_list->head->value, one_elem_list->tail->value, one_elem_list->tail->prev);
 }
 //*****************************************************************************************************
 void remove_all_test()
 {
 	LinkedList2*empty_list = new LinkedList2();
 	LinkedList2*one_elem_list = new LinkedList2();
+	one_elem_list->add_in_tail(new Node(2));
 	one_elem_list->add_in_tail(new Node(1));
 	LinkedList2*test_list = new LinkedList2();
 
@@ -291,11 +297,11 @@ void remove_all_test()
 	test_list->add_in_tail(new Node(11));
 	test_list->add_in_tail(new Node(2));
 	test_list->add_in_tail(new Node(2));
-	print(one_elem_list);
+	//print(test_list);
 	printf("**********\n");
-	test_list->remove_all(2);
-	//print(one_elem_list);
-	printf("%i\n", test_list->tail->value);
+	one_elem_list->remove_all(1);
+	print(one_elem_list);
+	printf("Head->prev:%i\n",one_elem_list->tail->value);
 }
 //********************************************************************
 void clear_test()
@@ -365,12 +371,12 @@ void insert_test()
 	printf("*****************************\n");
 	one_elem_list->insert_after(one_elem_list->head->prev, new Node(47));
 	print(one_elem_list);
-	printf("%i\n%i\n", one_elem_list->head->next->value, one_elem_list->tail->prev->value);
+	printf("%i\n%i\n", one_elem_list->head->prev, one_elem_list->tail->prev->value);
 	printf("*****************************\n");
 	//*******
-	test_list->insert_after(test_list->tail->next, new Node(13));
+	test_list->insert_after(test_list->tail, new Node(13));
 	print(test_list);
-	printf("%i\n%i\n", test_list->head->next->value, test_list->tail->value);
+	printf("%i\n%i\n", test_list->head->value, test_list->tail->prev->value);
 }
 //***************************************************************************
 void find_all_test()
@@ -401,6 +407,11 @@ void find_all_test()
 
 /*int main()
 {
+	//clear_test();
 	//remove_all_test();
-	
+	//remove_test();
+	//find_all_test();
+	//size_test();
+	insert_test();
+	//find_test();
 }*/
