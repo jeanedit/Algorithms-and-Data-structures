@@ -59,7 +59,6 @@ public:
 		Node*node = head;
 		if (node == NULL) //if list is empty
 		{
-			printf("List is empty\n");
 			return false;
 		}
 		else if (head->value == val) // if head value is equal to the given
@@ -137,7 +136,6 @@ public:
 		Node*node = head;
 		if (node == NULL)
 		{
-			printf("List is empty\n");
 			return;
 		}
 		while (node != NULL)
@@ -212,7 +210,6 @@ public:
 		Node*node = head;
 		if (node == NULL)
 		{
-			printf("List is empty\n");
 			return NULL;
 		}
 		while (node != NULL)
