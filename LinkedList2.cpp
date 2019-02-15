@@ -372,11 +372,9 @@ void insert_test()
 	print(test_list);
 	printf("%i\n%i\n", test_list->head->next->value, test_list->tail->value);
 }
-
-
-int main()
+//***************************************************************************
+void find_all_test()
 {
-	//remove_all_test();
 	LinkedList2*empty_list = new LinkedList2();
 	LinkedList2*one_elem_list = new LinkedList2();
 	one_elem_list->add_in_tail(new Node(1));
@@ -400,3 +398,9 @@ int main()
 	print(s);
 	//print(j);
 }
+
+/*int main()
+{
+	//remove_all_test();
+	
+}*/
