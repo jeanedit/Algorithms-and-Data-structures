@@ -99,7 +99,7 @@ public:
 			}
 
 		}
-		return false; // если узел был удалён
+		return false; 
 	}
 
 	void remove_all(int val)
