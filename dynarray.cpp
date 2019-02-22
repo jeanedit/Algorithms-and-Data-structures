@@ -5,7 +5,7 @@ class DynArray
 public:
 	int count;
 	int capacity;
-	int* array;  
+	int* array;  // хранит неотрицательные значения
 	DynArray()
 	{
 		count = 0;
@@ -61,9 +61,9 @@ public:
 
 		if (count == capacity) make_array(2 * capacity);
 
-		for (int i = index; i < count; ++i)
+		for (int i = count; i>index; --i)
 		{
-			array[i + 1] = array[i];
+			array[i] = array[i-1];
 		}
 		array[index] = value;
 		++count;
@@ -101,19 +101,26 @@ void print(DynArray*n)
 int main()
 {
 	DynArray*n = new DynArray();
-	for (int i = 0; i < 16; ++i)
+	for (int i = 0; i < 14; ++i)
 	{
-		n->append(1);
+		n->append(i);
 	}
-	n->append(16);
+	n->insert(14, 4);
+	n->insert(15, 6);
+	n->insert(16, 9);
+	n->remove(16);
+	n->remove(14);
+	n->insert(13,15);
 	print(n);
-	printf("****************\ncount:%i\ncapacity:%i\n",n->count,n->capacity);
-	//n->insert(2, 17);
-	n->remove(0);
-	//n->remove(15);
-	print(n);
-	//n->make_array(21);
 	printf("****************\ncount:%i\ncapacity:%i\n", n->count, n->capacity);
+
+	//printf("%i\n", n->get_item(16));
+
+	//n->append(16);
+	//print(n);
+
+	//printf("****************\ncount:%i\ncapacity:%i\n",n->count,n->capacity);
+	
 	//printf("%i\n",n->get_item(16));
 }
 */
