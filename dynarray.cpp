@@ -5,7 +5,7 @@ class DynArray
 public:
 	int count;
 	int capacity;
-	int* array;  // хранит неотрицательные значения
+	int* array; 
 	DynArray()
 	{
 		count = 0;
