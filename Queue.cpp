@@ -90,21 +90,3 @@ public:
 	}
 };
 
-
-int main()
-{
-	Queue*queue = new Queue();
-	printf("%i\n", queue->dequeue());
-	int i = 0;
-	queue->enqueue(102);
-	printf("%i\n", queue->list->head->val);
-	while (i < 10)
-	{
-		queue->enqueue(i);
-		++i;
-	}
-	printf("%i\n", queue->list->tail->val);
-	printf("%i\n", queue->dequeue());
-	printf("%i\n", queue->dequeue());
-
-}
