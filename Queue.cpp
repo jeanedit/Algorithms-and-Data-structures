@@ -74,6 +74,7 @@ public:
 		Node*node = list->head;
 		if (list->head == NULL) return -1;
 		list->head = node->next;
+		--queuesize;
 		return node->val;
 	}
 
