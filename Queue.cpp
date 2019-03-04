@@ -12,11 +12,6 @@ public:
 		val = value;
 		next = NULL;
 	}
-	~Node()
-	{
-		delete next;
-	}
-
 };
 
 
@@ -32,13 +27,6 @@ public:
 		head = NULL;
 		tail = NULL;
 	}
-
-	~List()
-	{
-		delete head;
-		delete tail;
-	}
-
 };
 
 
