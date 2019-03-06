@@ -27,12 +27,12 @@ public:
 };
 
 
-class Dequeue
+class Deque
 {
 public:
 	List * list;
 	int deqsize;
-	Dequeue()
+	Deque()
 	{
 		list = new List();
 		deqsize = 0;
