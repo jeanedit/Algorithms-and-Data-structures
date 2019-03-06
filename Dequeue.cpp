@@ -112,33 +112,3 @@ public:
 		return deqsize;
 	}
 };
-
-/*
-int main()
-{
-	Dequeue*deq = new Dequeue();
-	for (int i = 0; i < 5; ++i)
-	{
-		deq->add_tail(1+i*i*i);
-	}
-	printf("Head:%i\tTail:%i\n", deq->list->head->val, deq->list->tail->val);
-	
-	printf("Delete:%i\tSize:%i\tHead:%i\tTail:%i\n", deq->remove_tail(),deq->size(),deq->list->head->val,deq->list->tail->val);
-	printf("Delete:%i\tSize:%i\tHead:%i\tTail:%i\n", deq->remove_tail(), deq->size(), deq->list->head->val, deq->list->tail->val);
-	printf("Delete:%i\tSize:%i\tHead:%i\tTail:%i\n", deq->remove_tail(), deq->size(), deq->list->head->val, deq->list->tail->val);
-	printf("Delete:%i\tSize:%i\tHead:%i\tTail:%i\n", deq->remove_tail(), deq->size(), deq->list->head->val, deq->list->tail->val);
-	printf("Delete:%i\tSize:%i\tHead:%i\tTail:%i\n", deq->remove_tail(), deq->size(), deq->list->head->val, deq->list->tail->val);
-	printf("Delete:%i\tSize:%i\tHead:%i\tTail:%i\n", deq->remove_tail(), deq->size(), deq->list->head, deq->list->tail);
-
-
-	/*printf("Testing Front op\nHead:%i\tTail:%i\n", deq->list->head->val, deq->list->tail->val);
-
-	printf("Delete:%i\tSize:%i\tHead:%i\tTail:%i\n", deq->remove_front(), deq->size(), deq->list->head->val, deq->list->tail->val);
-	printf("Delete:%i\tSize:%i\tHead:%i\tTail:%i\n", deq->remove_front(), deq->size(), deq->list->head->val, deq->list->tail->val);
-	printf("Delete:%i\tSize:%i\tHead:%i\tTail:%i\n", deq->remove_front(), deq->size(), deq->list->head->val, deq->list->tail->val);
-	printf("Delete:%i\tSize:%i\tHead:%i\tTail:%i\n", deq->remove_front(), deq->size(), deq->list->head->val, deq->list->tail->val);
-	printf("Delete:%i\tSize:%i\tHead:%i\tTail:%i\n", deq->remove_front(), deq->size(), deq->list->head->val, deq->list->tail->val);
-	printf("Delete:%i\tSize:%i\tHead:%i\tTail:%i\n", deq->remove_front(), deq->size(), deq->list->head, deq->list->tail);
-
-}
-*/
