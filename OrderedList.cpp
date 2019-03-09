@@ -129,6 +129,7 @@ public:
 		if (node->value == val)
 		{
 			head = node->next;
+			head->prev=NULL;
 			return;
 		}
 		if (tail->value == val)
