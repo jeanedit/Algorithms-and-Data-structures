@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <typeinfo.h>
-#include <string>
+//#include <string>
 
-using namespace std;
+//using namespace std;
 
 
 template <class T>
