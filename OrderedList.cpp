@@ -1,8 +1,5 @@
 #include <stdio.h>
 #include <typeinfo.h>
-//#include <string>
-
-//using namespace std;
 
 
 template <class T>
@@ -40,48 +37,9 @@ public:
 
 	int compare(T v1, T v2)
 	{
-		 if (typeid(T)==typeid(string)) //comparison of strings
-		{
-
-			string first;
-			string second;
-
-			int count = 0;
-
-			first.resize(v1.size());
-			second.resize(v2.size());
-
-
-			for (int i = 0; i < v1.size(); ++i)
-			{
-				if (v1[i] != ' ')
-					first[count++] = v1[i];
-			}
-
-			count = 0;
-
-			for (int i = 0; i < v2.size(); ++i)
-			{
-				if (v2[i] != ' ')
-					second[count++] = v2[i];
-			}
-
-			for (int i = 0; i < first.size(); ++i)
-			{
-				if (first[i] > second[i]) return 1;
-				else if (first[i] < second[i])return -1;
-			}
-
-			if (v1.size() < v2.size()) return 1;
-			if (v1.size() > v2.size()) return -1;
-			if (v1.size() == v2.size()) return 0;
-		}
-		else
-		{
 			if (v1 < v2)  return -1;
 			if (v1 == v2) return  0;
 			if (v1 > v2)  return  1;
-		}
 	}
 
 	void add(T value)
@@ -220,7 +178,7 @@ public:
 
 	T* get_all()
 	{
-		Node*<T>node = head;
+		Node<T>*node = head;
 		T*list = new T[size()];
 
 		for (int i = 0; node != NULL; ++i)
