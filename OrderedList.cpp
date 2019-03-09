@@ -126,7 +126,7 @@ public:
 			tail = NULL;
 			return;
 		}
-		if (node->value == val)
+		if (head->value == val)
 		{
 			head = node->next;
 			head->prev=NULL;
@@ -184,7 +184,7 @@ public:
 
 		for (int i = 0; node != NULL; ++i)
 		{
-			list[i] = node;
+			list[i] = node->value;
 			node = node->next;
 		}
 		return list;
