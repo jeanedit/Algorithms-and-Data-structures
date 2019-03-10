@@ -120,6 +120,9 @@ public:
 	void del(T val)
 	{
 		Node<T>*node = head;
+
+		if (node == NULL) return;
+
 		if (head->value == val && tail->value == val)
 		{
 			head = NULL;
@@ -141,6 +144,7 @@ public:
 		while (node->value != val)
 		{
 			node = node->next;
+			if (node == NULL) return;
 		}
 		if (node->prev)
 			node->prev->next = node->next;
@@ -179,6 +183,7 @@ public:
 
 	T* get_all()
 	{
+		
 		Node<T>*node = head;
 		T*list = new T[size()];
 
