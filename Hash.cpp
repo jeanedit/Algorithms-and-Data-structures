@@ -20,9 +20,8 @@ public:
 	int hashFun(char* value)
 	{
 		if (value == NULL) return -1;
-		
 		int index = 0;
-
+		
 		for (int i=0;value[i]!=0;++i) 
 			index += (int)value[i];
 		
@@ -37,8 +36,7 @@ public:
 		{
 			while (index <size)
 			{
-				if (slots[index] == NULL)
-					return index;
+				if (slots[index] == NULL) return index;
 				index += step;
 			}
 			index = index - size;
@@ -55,8 +53,7 @@ public:
 			slots[index] = value;
 			return index;
 		}
-		else
-			return -1;
+		else return -1;
 	}
 
 	int find(char* value)
