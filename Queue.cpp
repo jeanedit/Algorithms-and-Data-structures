@@ -1,6 +1,5 @@
 #include<stdio.h>
 
-
 class Node
 {
 public:
