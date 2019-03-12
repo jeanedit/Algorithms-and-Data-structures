@@ -1,5 +1,6 @@
-
 #include<stdio.h>
+#include<string.h>
+
 
 
 class HashTable
@@ -20,8 +21,9 @@ public:
 	int hashFun(char* value)
 	{
 		if (value == NULL) return -1;
-		int index = 0;
 		
+		int index = 0;
+
 		for (int i=0;value[i]!=0;++i) 
 			index += (int)value[i];
 		
@@ -32,11 +34,14 @@ public:
 	{
 		int index = hashFun(value);
 
+		if (index == -1) return -1;
+
 		for (int i = 0; i < step+1; ++i)
 		{
 			while (index <size)
 			{
-				if (slots[index] == NULL) return index;
+				if (slots[index] == NULL)
+					return index;
 				index += step;
 			}
 			index = index - size;
@@ -50,10 +55,14 @@ public:
 		
 		if (index != -1)
 		{
-			slots[index] = value;
+			/*if(slots[index]!=NULL)
+				strcpy(slots[index], value);*/
+			slots[index] == value;
+
 			return index;
 		}
-		else return -1;
+		else
+			return -1;
 	}
 
 	int find(char* value)
@@ -66,7 +75,8 @@ public:
 		{
 			while (index < size)
 			{
-				if (slots[index]==value)
+				
+				if (slots[index]!=NULL&&strcmp(slots[index],value)==0)
 					return index;
 				index += step;
 			}
