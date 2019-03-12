@@ -1,7 +1,4 @@
 #include<stdio.h>
-#include<string.h>
-
-
 
 class HashTable
 {
@@ -56,7 +53,6 @@ public:
 		if (index != -1)
 		{
 			slots[index] = value;
-
 			return index;
 		}
 		else
@@ -73,9 +69,7 @@ public:
 		{
 			while (index < size)
 			{
-				
-				if (slots[index]!=NULL&&strcmp(slots[index],value)==0)
-					return index;
+				if (slots[index] == value) return index;
 				index += step;
 			}
 			index =index-size;
