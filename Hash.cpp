@@ -55,8 +55,6 @@ public:
 		
 		if (index != -1)
 		{
-			/*if(slots[index]!=NULL)
-				strcpy(slots[index], value);*/
 			slots[index] == value;
 
 			return index;
