@@ -69,7 +69,11 @@ public:
 		{
 			while (index < size)
 			{
-				if (slots[index] == value) return index;
+				//if (slots[index]!=NULL)
+				//{
+					if (slots[index] != NULL && strcmp(slots[index], value) == 0)
+						return index;
+				//}
 				index += step;
 			}
 			index =index-size;
