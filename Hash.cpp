@@ -55,7 +55,7 @@ public:
 		
 		if (index != -1)
 		{
-			slots[index] == value;
+			slots[index] = value;
 
 			return index;
 		}
