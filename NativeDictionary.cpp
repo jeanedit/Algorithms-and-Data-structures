@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+
 #include<stdio.h>
 #include<string.h>
 
@@ -131,26 +131,3 @@ private:
 		return -1;
 	}
 };
-
-
-
-int main()
-{
-	NativeDictionary*dict = new NativeDictionary(10);
-
-	
-	for (int i = 0; i < 11; ++i)
-	{
-		char* k = new char[32];
-		sprintf(k, "key %i",i);
-		dict->put(k, (i - 1)*(i - 1));
-	}
-	//printf("%c\n", dict->slots[1][0]);
-	char a[7] = "key 10";
-	char*a1 = a;
-	printf("%i\n", dict->get(a1));
-	if (dict->is_key(a1))
-	{
-		printf("%i\n", dict->get(a1));
-	}
-}
