@@ -19,8 +19,12 @@ Date:
 
 */
 
+#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<string.h>
+#include<vector>
+using namespace std;
+
 
 class PowerSet
 {
@@ -41,7 +45,10 @@ public:
 		int count = 0;
 		for (int i = 0; i < set_size; ++i)
 		{
-			if (slots[i] != NULL) count++;
+			if (slots[i] != NULL)
+			{
+				count++;
+			}
 		}
 		return count;
 	}
@@ -95,11 +102,8 @@ public:
 
 		for (int j = 0; j < set_size; ++j)
 		{
-			for (int i = 0; i < set2->set_size; ++i)
-			{
 				if (set2->get(slots[j]))
 					set->put(slots[j]);
-			}
 		}
 		return set;
 	}
@@ -118,11 +122,17 @@ public:
 
 		for (int j = 0; j < set_size; ++j)
 		{
-			set->put(slots[j]);
+			if (slots[j] != NULL)
+			{
+				set->put(slots[j]);
+			}
 		}
 		for (int i = 0; i < set2->set_size; ++i)
 		{
-			set->put(set2->slots[i]);
+			if (set2->slots[i] != NULL)
+			{
+				set->put(set2->slots[i]);
+			}
 		}
 		return set;
 	}
@@ -140,7 +150,7 @@ public:
 
 		for (int j = 0; j < set_size; ++j)
 		{
-			for (int i = 0; i < set2->set_size; ++i)
+			if (slots[j] != NULL)
 			{
 				if (!set2->get(slots[j]))
 					set->put(slots[j]);
@@ -227,31 +237,38 @@ void test()
 	PowerSet*set4 = new PowerSet();
 	PowerSet*set5 = new PowerSet();
 
-	for (int i = 0; i < 11; ++i)
+	for (int i = 0; i < 12; ++i)
 	{
 		char*s = new char[32];
 		sprintf(s, "%i", i);
 		set->put(s);
 	}
 
-	for (int i = 0; i <11; ++i)
+	for (int i = 0; i <2; ++i)
 	{
 		char*s = new char[32];
 		sprintf(s, "%i", i );
 		set1->put(s);
 	}
-
-	PowerSet*set3 = set->difference(set4);
+	char z[5] = "212";
+	char*z1 = z;
+	//set->put(z);
+	PowerSet*set3 = set->difference(set1);
 
 	if (set->is_subset(set1)) printf("Set1 is a subset of the set\n");
 	else printf("Set1 isn't a subset of the set\n");
 
 	
 
-	char a[3] = "4";
+	char a[5] = "212";
 	char*a1 = a;	//set->put(a1);
-	if (set3->get(a1)) printf("%c in the set\n", a1[0]);
+	if (set->get(a1)) printf("%c in the set\n", a1[0]);
 	printf("size: %i\tset_cap: %i\n", set3->size(),set3->set_size);
 	//if (set->remove(a1)) printf("size: %i\tset_cap: %i\n", set->size(), set->set_size);
 	//if (set3->get(a1)) printf("%c in the set\n", a1[0]);
+}
+
+int main()
+{
+	test();
 }
