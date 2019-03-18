@@ -19,11 +19,9 @@ Date:
 
 */
 
-#define _CRT_SECURE_NO_WARNINGS
+
 #include<stdio.h>
 #include<string.h>
-#include<vector>
-using namespace std;
 
 
 class PowerSet
@@ -255,9 +253,4 @@ void test()
 	printf("size: %i\tset_cap: %i\n", set3->size(),set3->set_size);
 	if (set->remove(a1)) printf("size: %i\tset_cap: %i\n", set->size(), set->set_size);
 	if (set3->get(a1)) printf("%c in the set\n", a1[0]);*/
-}
-int main()
-{
-
-	
 }
