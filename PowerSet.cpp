@@ -19,9 +19,11 @@ Date:
 
 */
 
-
+#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<string.h>
+#include<vector>
+using namespace std;
 
 
 class PowerSet
@@ -90,7 +92,8 @@ public:
 	PowerSet* intersection(PowerSet* set2)
 	{
 		PowerSet*set = new PowerSet();
-		if (set == NULL) return NULL;
+
+		if (set2 == NULL || this == NULL) return NULL;
 
 		//Finds equal elements of two set and adds this to the created set;
 
@@ -108,6 +111,8 @@ public:
 	PowerSet* _union(PowerSet* set2)
 	{
 		PowerSet*set = new PowerSet();
+
+		if (set2 == NULL || this == NULL) return NULL;
 
 		if (set2->size() == 0) return this;
 
@@ -130,8 +135,11 @@ public:
 	{
 		PowerSet*set = new PowerSet();
 
-		if (set == NULL) return NULL;
+		if (set2 == NULL||this==NULL) return NULL;
 
+		if (this->size()==0) return set;
+		if (set2->size()==0) return this;
+		
 		//Checks containing  the elements of the set2  in the set, if not adds to the created set;
 
 		for (int j = 0; j < set_size; ++j)
@@ -147,6 +155,7 @@ public:
 
 	bool is_subset(PowerSet* set2)
 	{
+		if (set2 == NULL) return false;
 		//Just checks is the elements of the set2 are contained in the set
 
 		for (int i = 0; i < set2->set_size; ++i)
@@ -219,6 +228,8 @@ void test()
 {
 	PowerSet*set = new PowerSet();
 	PowerSet*set1 = new PowerSet();
+	PowerSet*set4 = new PowerSet();
+	PowerSet*set5 = new PowerSet();
 
 	for (int i = 0; i < 11; ++i)
 	{
@@ -227,30 +238,28 @@ void test()
 		set->put(s);
 	}
 
-	for (int i = 0; i <7; ++i)
+	for (int i = 0; i <11; ++i)
 	{
 		char*s = new char[32];
-		sprintf(s, "%i", i + 9);
+		sprintf(s, "%i", i );
 		set1->put(s);
 	}
 
-	for (int i = 0; i < 11; ++i)
-	{
-		char*s = new char[32];
-		sprintf(s, "%i", i);
-		if (set->remove(s)) printf("Size:%i\tCap:%i\n", set->size(), set->set_size);
-	}
+	PowerSet*set3 = set->difference(set4);
 
-	/*
 	if (set->is_subset(set1)) printf("Set1 is a subset of the set\n");
 	else printf("Set1 isn't a subset of the set\n");
 
-	PowerSet*set3 = set1->intersection(set);
+	
 
 	char a[3] = "4";
 	char*a1 = a;	//set->put(a1);
 	if (set3->get(a1)) printf("%c in the set\n", a1[0]);
 	printf("size: %i\tset_cap: %i\n", set3->size(),set3->set_size);
-	if (set->remove(a1)) printf("size: %i\tset_cap: %i\n", set->size(), set->set_size);
-	if (set3->get(a1)) printf("%c in the set\n", a1[0]);*/
+	//if (set->remove(a1)) printf("size: %i\tset_cap: %i\n", set->size(), set->set_size);
+	//if (set3->get(a1)) printf("%c in the set\n", a1[0]);
+}
+int main()
+{
+	test();
 }
