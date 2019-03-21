@@ -16,7 +16,6 @@ Date:
 */
 
 
-#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<string.h>
 
@@ -84,7 +83,7 @@ void reverse(char*str)
 }
 
 
-int main()
+void test()
 {
 	BloomFilter*filter = new BloomFilter(32);
 	
@@ -101,5 +100,5 @@ int main()
 		printf("%c%c%c%c%c%c%c%c%c%c\n", pb[0], pb[1], pb[2], pb[3], pb[4], pb[5], pb[6], pb[7], pb[8], pb[9]);
 	}
 	
-	if(filter->is_value(pa)) printf("YEE,BOII\n");
+	if(filter->is_value(pa)) printf("Value in the set\n");
 }
