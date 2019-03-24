@@ -34,7 +34,7 @@ public:
 	int slots_size;
 	char** slots;
 	int* values;
-	int* hits; //number of hits of the each key 
+	int* hits; //number of hits for each key 
 
 	NativeCache(int sz)
 	{
@@ -78,7 +78,6 @@ public:
 	{
 		int _slot = seekSlot(key);
 
-
 		if (_slot != -1)
 		{
 			slots[_slot] = key;
@@ -105,7 +104,14 @@ public:
 			return values[index];
 		}
 	}
-
+	~NativeCache()
+	{
+		delete[] hits;
+		delete[] values;
+		for (int i = 0; i<slots_size; i++)
+			delete[] slots[i];
+		delete[] slots;
+	}
 private:
 	int step;
 
@@ -139,13 +145,16 @@ private:
 			{
 				if (slots[index] == NULL)
 					return index;
+				else if((slots[index] != NULL && strcmp(slots[index], value) == 0))
+				{
+					return index;
+				}
 				index += step;
 			}
 			index = index - slots_size;
 		}
 		return -1;
 	}
-
 
 	int find(char* value)
 	{
