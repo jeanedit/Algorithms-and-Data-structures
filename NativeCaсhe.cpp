@@ -25,7 +25,6 @@ Date:
 24.03.2019
 */
 
-#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<string.h>
 
@@ -188,42 +187,3 @@ private:
 		return -1;
 	}
 };
-
-int main()
-{
-	NativeCache*cache = new NativeCache(19);
-
-	for (int i = 0; i <100; ++i)
-	{
-		char*num = new char[32];
-		sprintf(num, "%i", i);
-		cache->put(num,i);
-		cache->is_key(num);
-	}
-	char n[32] = "99";
-	char*n1 = n;
-	
-	cache->is_key(n1);
-	cache->is_key(n1);
-	cache->is_key(n1);
-	cache->is_key(n1);
-
-
-	
-	char n2[32] = "18";
-	char*n3 = n2;
-
-	cache->is_key(n3);
-	cache->is_key(n3);
-	cache->is_key(n3);
-	cache->is_key(n3);
-
-	char n4[32] = "57";
-	char*n5 = n4;
-	cache->put(n5,76);
-
-	for (int i = 0; i < 19; ++i)
-	{
-		printf("%i\t%c%c\t%i\n", i,cache->slots[i][0],cache->slots[i][1],cache->hits[i]);
-	}
-}
