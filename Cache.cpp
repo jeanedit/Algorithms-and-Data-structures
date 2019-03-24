@@ -78,12 +78,6 @@ public:
 	{
 		int _slot = seekSlot(key);
 
-		if (find(key) != -1)
-		{
-			hits[find(key)]++;
-			values[find(key)] = value;
-			return;
-		}
 
 		if (_slot != -1)
 		{
@@ -152,18 +146,6 @@ private:
 		return -1;
 	}
 
-	int put(char* value)
-	{
-		int index = seekSlot(value);
-
-		if (index != -1)
-		{
-			slots[index] = value;
-			return index;
-		}
-		else
-			return -1;
-	}
 
 	int find(char* value)
 	{
