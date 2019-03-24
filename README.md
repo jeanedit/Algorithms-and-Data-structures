@@ -21,3 +21,7 @@ Implementation of Data Structures on C++
 9.Associative Array (Native Dictionary)
 
 10.Set
+
+11.Bloom Filter
+
+12. Cache
